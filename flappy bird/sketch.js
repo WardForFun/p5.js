@@ -20,6 +20,7 @@ function draw()
     barrels.generate();
     bird.show();
     bird.update();
+    bird.checkScore();
     drawScore();
 
 }
@@ -41,6 +42,6 @@ function drawScore()
 
     textSize(48);
     fill(255);
-    text(bird.score, 300, 50);
+    text(bird.score, 290, 50);
 
 }

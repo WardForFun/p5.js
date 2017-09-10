@@ -6,8 +6,8 @@ function Bird()
     this.birdSize = 30;
     this.gravityStatus = 0;
     this.gravityMax = 15;
-    this.gravityIncrease = 0.5;
-    this.jumpHeight = -15;
+    this.gravityIncrease = 0.8;
+    this.jumpHeight = -18;
     this.birdColor = color(255,165,0);
     this.score = 0;
 
@@ -78,13 +78,19 @@ function Bird()
 
     }
 
-    this.checkScore()
+    this.checkScore = function()
     {
 
         for(var i = 0; i < barrels.xlow.length; i++)
             {
 
-                
+                if(this.x >= barrels.xlow[i] + barrels.barrelWidth)
+                {
+
+                    this.score = this.score + 1;
+                    console.log(barrels.xlow[i]);
+
+                } 
 
             }
 
