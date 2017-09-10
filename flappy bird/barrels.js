@@ -1,11 +1,11 @@
 function Barrels()
 {
 
-    this.xlow = [0, 300, 500];
+    this.xlow = [1200, 1500, 1800];
     this.ylow = [0, 0, 0];
     this.lowHeight = [250, 100, 300];
     
-    this.xhigh = [0, 300, 500];
+    this.xhigh = [1200, 1500, 1800];
     this.yhigh = [350, 200, 400];
     this.heigHeight = [250, 400, 200];
 
@@ -54,7 +54,19 @@ function Barrels()
             {
 
 
-                
+                /* if the barrel isn't visible set the x to 600 and randomize the heights */
+                if(this.xlow[i] < 0 - this.barrelWidth)
+                    {
+
+                        this.xlow[i] = 600;
+                        this.ylow[i] = 600;
+
+
+
+
+
+                    }
+
             }
 
     }
