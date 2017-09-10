@@ -14,6 +14,7 @@ function draw()
 
     background(51);
     barrels.show();
+    barrels.update();
 
 
 }
