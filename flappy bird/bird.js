@@ -10,6 +10,7 @@ function Bird()
     this.jumpHeight = -18;
     this.birdColor = color(255,165,0);
     this.score = 0;
+    this.checkerForScore = [false, false, false];
 
     this.update = function()
     {
@@ -40,8 +41,7 @@ function Bird()
                 this.death();
 
             }
-        console.log(this.y);
-
+        
         this.y = this.y + this.gravityStatus;
         this.gravityStatus = this.gravityStatus + this.gravityIncrease;
 
@@ -81,16 +81,34 @@ function Bird()
     this.checkScore = function()
     {
 
-        for(var i = 0; i < barrels.xlow.length; i++)
-            {
+        for(var i = 0; i < this.checkerForScore.length; i++)
+            {   
 
-                if(this.x >= barrels.xlow[i] + barrels.barrelWidth)
+                if(this.x >= barrels.xlow[i] + barrels.barrelWidth 
+                    && this.checkerForScore[i] != true)
                 {
 
                     this.score = this.score + 1;
-                    console.log(barrels.xlow[i]);
+                    this.checkerForScore[i] = true;
+                    console.log(i);
+                    if(this.checkerForScore[i-1])
+                        {
 
-                } 
+                            this.checkerForScore[i-1] = false;
+
+                        }
+                    if(i == 2)
+                        {
+
+                            this.checkerForScore[0] = false;
+                            this.checkerForScore[1] = false;
+                            this.checkerForScore[2] = false;
+                            console.log("heee");
+
+                        }
+
+                }   
+                    
 
             }
 
