@@ -13,7 +13,7 @@ function setup()
 
 function draw()
 {
-
+    
     background(51);
     barrels.show();
     barrels.update();
@@ -21,6 +21,7 @@ function draw()
     bird.show();
     bird.update();
     bird.checkScore();
+    // bird.barrelCollision();
     drawScore();
 
 }

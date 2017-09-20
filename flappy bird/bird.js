@@ -7,9 +7,11 @@ function Bird()
     this.gravityStatus = 0;
     this.gravityMax = 15;
     this.gravityIncrease = 0.8;
-    this.jumpHeight = -18;
+    this.jumpHeight = -18; //-18
     this.birdColor = color(255,165,0);
     this.score = 0;
+    this.checkerForScore = [false, false, false];
+    this.barrelAmountChecker = 2;
 
     this.update = function()
     {
@@ -40,7 +42,6 @@ function Bird()
                 this.death();
 
             }
-        console.log(this.y);
 
         this.y = this.y + this.gravityStatus;
         this.gravityStatus = this.gravityStatus + this.gravityIncrease;
@@ -81,18 +82,39 @@ function Bird()
     this.checkScore = function()
     {
 
+
         for(var i = 0; i < barrels.xlow.length; i++)
             {
 
                 if(this.x >= barrels.xlow[i] + barrels.barrelWidth)
                 {
 
-                    this.score = this.score + 1;
-                    console.log(barrels.xlow[i]);
 
                 } 
 
             }
+
+    }
+
+    this.barrelCollision = function()
+    {
+
+        for(var i = 0; i < this.barrelAmountChecker; i++)
+        {
+        if(this.x > barrels.xlow[i] && this.y > barrels.ylow[i] - this.birdSize)
+        {
+
+            this.death();
+
+        }
+        else if(this.x > barrels.xhigh[i] && this.y < barrels.highHeight[i])
+            {
+    
+                this.death();
+    
+            }
+
+        }
 
     }
 
