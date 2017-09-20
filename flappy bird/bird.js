@@ -11,7 +11,10 @@ function Bird()
     this.birdColor = color(255,165,0);
     this.score = 0;
     this.checkerForScore = [false, false, false];
+<<<<<<< HEAD
     this.barrelAmountChecker = 2;
+=======
+>>>>>>> 02b4db4d15ce807b821b1615a09efbe1a0b145fe
 
     this.update = function()
     {
@@ -42,7 +45,11 @@ function Bird()
                 this.death();
 
             }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 02b4db4d15ce807b821b1615a09efbe1a0b145fe
         this.y = this.y + this.gravityStatus;
         this.gravityStatus = this.gravityStatus + this.gravityIncrease;
 
@@ -82,15 +89,43 @@ function Bird()
     this.checkScore = function()
     {
 
+<<<<<<< HEAD
 
         for(var i = 0; i < barrels.xlow.length; i++)
             {
+=======
+        for(var i = 0; i < this.checkerForScore.length; i++)
+            {   
+>>>>>>> 02b4db4d15ce807b821b1615a09efbe1a0b145fe
 
-                if(this.x >= barrels.xlow[i] + barrels.barrelWidth)
+                if(this.x >= barrels.xlow[i] + barrels.barrelWidth 
+                    && this.checkerForScore[i] != true)
                 {
 
+<<<<<<< HEAD
+=======
+                    this.score = this.score + 1;
+                    this.checkerForScore[i] = true;
+                    console.log(i);
+                    if(this.checkerForScore[i-1])
+                        {
 
-                } 
+                            this.checkerForScore[i-1] = false;
+
+                        }
+                    if(i == 2)
+                        {
+
+                            this.checkerForScore[0] = false;
+                            this.checkerForScore[1] = false;
+                            this.checkerForScore[2] = false;
+                            console.log("heee");
+
+                        }
+>>>>>>> 02b4db4d15ce807b821b1615a09efbe1a0b145fe
+
+                }   
+                    
 
             }
 
