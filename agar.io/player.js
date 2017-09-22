@@ -1,7 +1,7 @@
 function Player()
 {
 
-    this.pos = createVector(width/2, 800/2);
+    this.pos = createVector(width/2, height/2);
     this.size = 50;
     this.xspeed = 0;
     this.yspeed = 0;
@@ -28,8 +28,12 @@ function Player()
 
     }
 
+    this.eatBlob = function()
+    {
 
-    // använd map för att justera hastigheten beroende på var musen är placerad
+
+
+    }
 
     this.move = function()
     {
@@ -37,30 +41,27 @@ function Player()
         if(mouseX > this.pos.x)
         {
 
-            this.xspeed = this.speedMultiplier;
-            console.log("4");
+            this.xspeed = map(mouseX, width/2, width, 0, this.speedMultiplier);
 
         }
         else if(mouseX < this.pos.x)
         {
 
-            this.xspeed = -this.speedMultiplier;
-            console.log("3");
+            this.xspeed = map(mouseX, width/2, 0, 0, this.speedMultiplier * -1);
 
         }
-        else if(mouseY < this.pos.y)
+        
+        if(mouseY < this.pos.y)
         {
 
-            this.yspeed = -this.speedMultiplier;
-            console.log("1");
+            this.yspeed = map(mouseY, height/2, 0, 0, this.speedMultiplier * -1);
 
 
         }
         else if(mouseY > this.pos.y)
         {
 
-            this.yspeed = this.speedMultiplier;
-            console.log("2");
+            this.yspeed = map(mouseY, height/2, height, 0, this.speedMultiplier);
 
         }
         else
@@ -70,6 +71,9 @@ function Player()
             this.yspeed = 0;
 
         }
+
+        constrain(this.xspeed, 0, this.speedMultiplier);
+        constrain(this.yspeed, 0, this.speedMultiplier);
 
     }
 

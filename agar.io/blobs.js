@@ -17,9 +17,9 @@ function Blobs()
     this.update = function()
     {
 
-        this.pos.x = player.xpspeed * -0.01 + this.pos.x;
+        this.pos.x = player.xspeed * -0.01 + this.pos.x;
         this.pos.y = player.yspeed * -0.01 + this.pos.y;
-
+ 
     }
 
 } 
